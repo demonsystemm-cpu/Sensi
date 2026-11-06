@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090909">
+<title>KLZX • Sensi Generator</title>
+<style>
+:root{--bg:#080808;--panel:#141414;--line:#292929;--red:#ff2638;--muted:#a6a6a6;--white:#f5f5f5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#431018 0%,#14090b 35%,var(--bg) 72%);color:var(--white);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
+.wrap{width:min(760px,100%);margin:auto;padding:26px 16px 48px}
+header{text-align:center;margin:8px 0 22px}.logo{display:inline-flex;align-items:center;gap:9px;font-weight:900;letter-spacing:2px;font-size:13px;color:#ff6875}.mark{width:35px;height:35px;border:1px solid #ff2638;border-radius:11px;display:grid;place-items:center;color:#ff2638;box-shadow:0 0 20px #ff263833;font-weight:900}
+h1{font-size:clamp(26px,7vw,38px);margin:12px 0 3px;letter-spacing:-1px}h1 span{color:var(--red)}.sub{color:var(--muted);margin:0}
+.card{background:linear-gradient(145deg,#191919f2,#101010f2);border:1px solid #303030;border-radius:20px;padding:19px;margin:14px 0;box-shadow:0 12px 35px #0008}
+h2{font-size:16px;margin:0 0 15px;letter-spacing:.3px}.tag{color:#ff6875;font-size:11px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;margin-bottom:7px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+label{display:block;color:#c9c9c9;font-size:13px;margin-bottom:6px}
+input,select{width:100%;background:#090909;color:#fff;border:1px solid #363636;border-radius:11px;padding:13px 12px;font-size:16px;outline:none}
+input:focus,select:focus{border-color:var(--red);box-shadow:0 0 0 3px #ff263822}
+.field{min-width:0}.hint{font-size:12px;color:var(--muted);margin-top:5px}
+button{border:0;border-radius:12px;padding:14px 16px;font-weight:800;font-size:15px;cursor:pointer}
+.primary{width:100%;color:white;background:linear-gradient(100deg,#d91027,#ff3346);box-shadow:0 8px 24px #ff263833;margin-top:15px}
+.secondary{background:#242424;color:#fff;border:1px solid #414141}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.result{display:none}.result.show{display:block}
+.resultbox{background:#090909;border:1px solid #333;border-radius:14px;padding:14px;margin:10px 0}
+.big{font-size:28px;font-weight:900;color:#ff5362}.muted{color:var(--muted);font-size:13px}
+.values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.val{background:#191919;border:1px solid #303030;padding:12px;border-radius:12px}.val b{display:block;font-size:21px;color:#fff}.val span{font-size:12px;color:var(--muted)}
+.note{border-left:3px solid var(--red);padding:10px 12px;background:#ff26380d;border-radius:0 10px 10px 0;color:#d5d5d5;font-size:12px;margin-top:12px}
+footer{text-align:center;color:#777;font-size:11px;margin:24px 0 0}
+@media(max-width:420px){.wrap{padding:20px 13px 38px}.card{padding:16px}.grid{gap:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="logo"><div class="mark">K</div> KLZX • GAMING TOOLS</div>
+  <h1>SENSI <span>GENERATOR</span></h1>
+  <p class="sub">Monte seu perfil de Free Fire e veja uma sugestão experimental de ciclos.</p>
+</header>
+
+<section class="card">
+  <div class="tag">01 / Dispositivo</div>
+  <h2>Configuração do aparelho</h2>
+  <div class="grid">
+    <div class="field"><label for="device">Modelo</label>
+      <select id="device"><option>iPhone 11</option><option>iPhone 12</option><option>iPhone 13</option><option>iPhone 14</option><option>iPhone 15</option><option>iPhone 16</option><option>iPhone 17</option><option>Outro iPhone</option><option>Android</option></select>
+    </div>
+    <div class="field"><label for="style">Estilo de jogo</label>
+      <select id="style"><option value="balanced">Equilibrado</option><option value="rush">Rush / puxada</option><option value="precision">Precisão</option><option value="control">Controle</option></select>
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="tag">02 / Sensibilidade do Free Fire</div>
+  <h2>Informe seus valores atuais (0 a 200)</h2>
+  <div class="grid">
+    <div class="field"><label for="geral">Geral</label><input id="geral" type="number" min="0" max="200" value="180"></div>
+    <div class="field"><label for="red">Ponto vermelho</label><input id="red" type="number" min="0" max="200" value="175"></div>
+    <div class="field"><label for="x2">Mira 2x</label><input id="x2" type="number" min="0" max="200" value="170"></div>
+    <div class="field"><label for="x4">Mira 4x</label><input id="x4" type="number" min="0" max="200" value="160"></div>
+    <div class="field"><label for="awm">AWM</label><input id="awm" type="number" min="0" max="200" value="35"></div>
+    <div class="field"><label for="look">Olhadinha</label><input id="look" type="number" min="0" max="200" value="150"></div>
+  </div>
+  <button class="primary" id="generate">GERAR MEU PERFIL</button>
+</section>
+
+<section class="card result" id="result" aria-live="polite">
+  <div class="tag">03 / Seu resultado</div>
+  <h2 id="resultTitle">Perfil gerado</h2>
+  <div class="resultbox">
+    <div class="muted">Média das sensibilidades</div>
+    <div class="big" id="avg">—</div>
+    <div class="muted" id="profileText"></div>
+  </div>
+  <h2>Resumo da sensibilidade informada</h2>
+  <div class="values" id="sensValues"></div>
+  <h2 style="margin-top:18px">Sugestão experimental • Controle Assistivo</h2>
+  <div class="values">
+    <div class="val"><span>Ciclos</span><b id="cycles">—</b></div>
+    <div class="val"><span>Escaneamento automático</span><b id="scan">—</b></div>
+    <div class="val"><span>Repetição de movimento</span><b id="repeat">—</b></div>
+    <div class="val"><span>Pausa no primeiro item</span><b id="pause">—</b></div>
+  </div>
+  <p class="note" id="explain"></p>
+  <div class="actions">
+    <button class="secondary" id="copy">COPIAR PERFIL</button>
+    <button class="secondary" id="reset">LIMPAR</button>
+  </div>
+</section>
+<footer>KLZX Sensi Generator • Ferramenta de sugestões, não modifica o jogo nem as configurações do iOS.</footer>
+</div>
+<script>
+const ids=['geral','red','x2','x4','awm','look'];
+const names=['Geral','Ponto vermelho','Mira 2x','Mira 4x','AWM','Olhadinha'];
+const $=id=>document.getElementById(id);
+let output='';
+function generate(){
+  const vals=ids.map(id=>Number($(id).value));
+  if(vals.some(v=>!Number.isFinite(v)||v<0||v>200)){alert('Use valores entre 0 e 200 em todos os campos.');return;}
+  const avg=vals.reduce((a,b)=>a+b,0)/vals.length;
+  const style=$('style').value;
+  // Heurística ilustrativa, sem relação técnica comprovada com a resposta ao toque.
+  let cycles=avg>=145?3:avg>=90?2:1;
+  if(style==='precision') cycles=Math.max(1,cycles-1);
+  if(style==='rush') cycles=Math.min(3,cycles+0);
+  if(style==='control') cycles=Math.max(1,cycles-1);
+  const scan=style==='precision'?'0,2 s':style==='control'?'0,3 s':style==='rush'?'0,1 s':'0,2 s';
+  const repeat=style==='rush'?'Ativada (teste)':'Desativada';
+  const pause=style==='precision'?'Ativada (teste)':'Desativada';
+  const styleNames={balanced:'Equilibrado',rush:'Rush / puxada',precision:'Precisão',control:'Controle'};
+  $('resultTitle').textContent='Perfil • '+$('device').value;
+  $('avg').textContent=avg.toFixed(1).replace('.',',')+'/200';
+  $('profileText').textContent='Estilo selecionado: '+styleNames[style]+'.';
+  $('sensValues').innerHTML=names.map((n,i)=>'<div class="val"><span>'+n+'</span><b>'+vals[i]+'</b></div>').join('');
+  $('cycles').textContent=cycles;
+  $('scan').textContent=scan;
+  $('repeat').textContent=repeat;
+  $('pause').textContent=pause;
+  $('explain').textContent='Esta é uma combinação experimental baseada apenas na média informada e no estilo escolhido. “Ciclos” e escaneamento pertencem ao Controle Assistivo do iOS: não ajustam a sensibilidade, o toque, o FPS ou a mira do Free Fire. Se você não usa o Controle Assistivo como recurso de acessibilidade, não precisa alterar essas opções. Teste com cuidado e volte ao Padrão se atrapalhar o uso do iPhone.';
+  output='KLZX SENSI GENERATOR\\nDispositivo: '+$('device').value+'\\nEstilo: '+styleNames[style]+'\\n'+names.map((n,i)=>n+': '+vals[i]).join('\\n')+'\\nMédia: '+avg.toFixed(1)+'\\n\\nSugestão experimental do Controle Assistivo (não altera o Free Fire):\\nCiclos: '+cycles+'\\nEscaneamento: '+scan+'\\nRepetição de movimento: '+repeat+'\\nPausa no primeiro item: '+pause+'\\n\\nAviso: não há relação técnica comprovada entre esses ajustes de acessibilidade e a sensibilidade do jogo.';
+  $('result').classList.add('show');
+  $('result').scrollIntoView({behavior:'smooth',block:'start'});
+}
+$('generate').addEventListener('click',generate);
+$('copy').addEventListener('click',async()=>{if(!output)return;try{await navigator.clipboard.writeText(output);$('copy').textContent='COPIADO!';setTimeout(()=>$('copy').textContent='COPIAR PERFIL',1600)}catch(e){alert(output)}});
+$('reset').addEventListener('click',()=>{$('result').classList.remove('show');output='';window.scrollTo({top:0,behavior:'smooth'})});
+</script>
+</body>
+</html>
